@@ -1,0 +1,13 @@
+class Solution:
+    def isCovered(self,ranges,left,right):
+        for num in range(left,right+1):
+            found=False
+            for r in ranges:
+                start=r[0]
+                end=r[1]
+                if start<=num<=end:
+                    found=True
+                    break
+            if not found:
+                return False
+        return True
