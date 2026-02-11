@@ -1,0 +1,23 @@
+
+from collections import defaultdict
+class Solution:
+    def findWinners(self, matches: List[List[int]]) -> List[List[int]]:
+        count = defaultdict(int)
+        all = set()
+        one = []
+        zero = []
+        for win,lose  in matches:
+            all.add(win)
+            all.add(lose)
+            count[lose] +=1
+        for i in all:
+            if count[i] == 0:
+
+                zero.append(i) 
+            elif count[i] == 1:
+
+                one.append(i) 
+
+        return [sorted(zero),sorted(one)]
+        
+     
