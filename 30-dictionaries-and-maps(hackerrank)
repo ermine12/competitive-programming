@@ -1,0 +1,16 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+n = int(input())
+phonebook = {}
+for r in range(n):
+    entry = input().strip().split()
+    name, number = entry[0], int(entry[1])
+    phonebook[name] = number
+while True:
+    try:
+        y = input().strip()
+        if y in phonebook:
+            print(f"{y}={phonebook[y]}") 
+        else:
+            print("Not found")
+    except EOFError:
+        break
