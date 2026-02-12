@@ -1,0 +1,9 @@
+class Solution:
+    def finalValueAfterOperations(self, operations: List[str]) -> int:
+        box = 0
+        for a in operations:
+            if a == "++X" or a == "X++":
+                box += 1
+            else:
+                box -= 1
+        return box
