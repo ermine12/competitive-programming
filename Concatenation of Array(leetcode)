@@ -1,0 +1,8 @@
+class Solution:
+    def getConcatenation(self, nums: List[int]) -> List[int]:
+        box = []
+        for a in nums:
+            box.append(a)
+        for b in nums:
+            box.append(b)
+        return box
