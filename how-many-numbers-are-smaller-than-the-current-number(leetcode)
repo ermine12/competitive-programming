@@ -1,0 +1,10 @@
+class Solution:
+    def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
+        box = []
+        for a in nums:
+            b = 0
+            for c in nums:
+                if c < a:
+                    b += 1
+            box.append(b)
+        return box
