@@ -1,0 +1,17 @@
+class Solution:
+    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
+        rows = len(mat)
+        cols = len(mat[0])
+        dic = defaultdict(list)
+        arr = []
+        for i in range(rows):
+            for j in range(cols):
+                
+                dic[i+j].append(mat[i][j])
+        for d in dic:
+            if d %2 ==1 :
+                arr.extend(dic[d])
+            else:
+                arr.extend(reversed(dic[d]))
+        return arr
+             
