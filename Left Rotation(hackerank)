@@ -1,0 +1,43 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'rotateLeft' function below.
+#
+# The function is expected to return an INTEGER_ARRAY.
+# The function accepts following parameters:
+#  1. INTEGER d
+#  2. INTEGER_ARRAY arr
+#
+
+def rotateLeft(d, arr):
+    left= len(arr) * [0]
+        
+    for i in range(len(arr)):
+        x=(i+d)%len(arr)
+        left[i]=arr[x]
+    return left
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    inputs = input().rstrip().split()
+
+    n = int(inputs[0])
+
+    d = int(inputs[1])
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = rotateLeft(d, arr)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
