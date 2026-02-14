@@ -1,0 +1,8 @@
+l,j,k = map(int, input().split())
+Tprice =0
+for i in range(1,k+1):
+    Tprice += i*l
+if(j-Tprice >=0):
+        print(0)
+else:
+    print(Tprice-j)
