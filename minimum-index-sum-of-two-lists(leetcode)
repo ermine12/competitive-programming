@@ -1,0 +1,15 @@
+class Solution:
+    def findRestaurant(self, list1: List[str], list2: List[str]) -> List[str]:
+        maps = {}
+        inde = {}
+
+        for i, key in enumerate(list1):
+             maps[key] = i
+
+        for s in range(len(list1)):
+            for j in list2:
+                if j in maps and maps[j] == s :
+                    inde[j] = s + list2.index(j)
+        miu = min(inde.values())
+        
+        return [k for k, v in inde.items() if v == miu]
