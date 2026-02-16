@@ -1,0 +1,25 @@
+class Solution:
+    def findWords(self, words: List[str]) -> List[str]:
+        result = []
+        map ={}
+        arr = ["qwertyuiop","asdfghjkl","zxcvbnm"]
+        for i in range(len(arr)):
+            for j in arr[i]:
+                map[j] = i+1
+
+        for word in words:
+            p = 0
+            checker = True
+            saved = word
+            word = word.lower()
+            for letter in word:
+                if p == 0:
+                    p = map[letter]
+                else:
+                    if p != map[letter]:
+                        checker = False
+                        break
+            if checker:
+                result.append(saved)
+        return result
+        
