@@ -1,0 +1,19 @@
+class Solution:
+    def uniqueMorseRepresentations(self, words: List[str]) -> int:
+        dic = {}
+        final = []
+        arr = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---",
+               "-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-",
+               "..-","...-",".--","-..-","-.--","--.."]
+        nums = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o",
+                "p","q","r","s","t","u","v","w","x","y","z"]
+        for i, value in enumerate(arr):
+            dic[value] = nums[i]
+        for word in words:
+            temp = ""
+            for letter in word:
+                index = nums.index(letter)   # find position of letter
+                temp += arr[index]           # add Morse code for that letter
+            if temp not in final:            # check uniqueness
+                final.append(temp)
+        return len(final)
