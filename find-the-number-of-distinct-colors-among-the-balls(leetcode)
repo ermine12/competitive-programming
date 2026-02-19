@@ -1,0 +1,19 @@
+class Solution:
+    def queryResults(self, limit: int, queries: List[List[int]]) -> List[int]:
+     
+        d = {}
+        c = {}
+        r = []
+        for x, y in queries:
+            if x in d:
+                old = d[x]
+                c[old] -= 1
+                if c[old] == 0:
+                    del c[old]
+            d[x] = y
+            c[y] = c.get(y, 0) + 1
+            r.append(len(c))
+        return r
+
+
+        
