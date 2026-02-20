@@ -1,0 +1,16 @@
+
+class Solution:
+    def numberOfBoomerangs(self, points: List[List[int]]) -> int:
+        zz = 0
+        for aa in points:
+            mm = {}
+            for bb in points:
+                if aa == bb:
+                    continue
+                xx = aa[0] - bb[0]
+                yy = aa[1] - bb[1]
+                dd = xx * xx + yy * yy
+                mm[dd] = mm.get(dd, 0) + 1
+            for vv in mm.values():
+                zz += vv * (vv - 1)
+        return zz
